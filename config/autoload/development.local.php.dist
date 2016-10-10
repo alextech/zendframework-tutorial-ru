@@ -1,18 +1,18 @@
 <?php
 /**
- * Local Configuration Override for DEVELOPMENT MODE.
+ *  Локальная замена конфигураций для РЕЖИМА РАЗРАБОТКИ (DEVELOPMENT MODE).
  *
- * This configuration override file is for providing configuration to use while
- * in development mode. Run:
+ * Этот заместитель конфигураций существует для указания параметров при разработке
+ * Запустите:
  *
  * <code>
  * $ composer development-enable
  * </code>
  *
- * from the project root to copy this file to development.local.php and enable
- * the settings it contains.
+ * из под корня проекта, чтобы скопировать этот файл в development.local.php и включить его
+ * конфигурации.
  *
- * You may also create files matching the glob pattern `{,*.}{global,local}-development.php`.
+ * Возможно, ещё придётся создать файлы в виде `{,*.}{global,local}-development.php`.
  */
 
 return [
