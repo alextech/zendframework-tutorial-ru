@@ -30,7 +30,7 @@ class Module implements ServiceProviderInterface {
                 $migrations = new Migrations($adapter);
                 if($migrations->needsUpdate()) {
                     $e->setName(MvcEvent::EVENT_DISPATCH_ERROR);
-                    $e->setError('Database Needs Update');
+                    $e->setError('База данных нуждается в обновлении.');
                     $e->setParam('needsDatabaseUpdate', true);
 
                     $e->stopPropagation(true);

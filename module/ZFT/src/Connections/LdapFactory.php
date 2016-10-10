@@ -20,7 +20,7 @@ class LdapFactory implements FactoryInterface {
         $config = $sm->get('Configuration');
 
         if(!array_key_exists('ldap', $config)) {
-            throw new ServiceNotCreatedException('Configuration is missing "ldap" key');
+            throw new ServiceNotCreatedException('В конфигурации отсутствует ключ "ldap"');
         }
 
         $config = $config['ldap'];

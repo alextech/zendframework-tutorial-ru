@@ -22,7 +22,7 @@ class UserRelatedControllerFactory implements FactoryInterface {
      */
     public function __invoke(ContainerInterface $serviceManager, $controllerName, array $options = null) {
         if(!class_exists($controllerName)) {
-            throw new ServiceNotFoundException("Requested controller name '".$controllerName."' does not exist.");
+            throw new ServiceNotFoundException("Запрошенный контроллер '".$controllerName."' не существует.");
         }
 
         $repository = $serviceManager->get(User\Repository::class);

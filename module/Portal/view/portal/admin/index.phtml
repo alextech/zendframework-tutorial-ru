@@ -2,7 +2,7 @@
 
 //@TODO ugly template
 if($this->needsMigration) { ?>
-    <a href="<?= $this->url('admin/dbtools/runmigrations') ?>">Run Migrations</a>
+    <a href="<?= $this->url('admin/dbtools/runmigrations') ?>">Выполнить миграции</a>
 <?php } else { ?>
-    Database is already up to date
+    Схема базы данных уже обновлена.
 <?php } ?>

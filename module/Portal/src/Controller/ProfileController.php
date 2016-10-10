@@ -25,11 +25,11 @@ class ProfileController extends AbstractActionController {
         $success = true;
         if($success) {
             $destinationRoute = 'profile/view_profile';
-            $flashMessenger->addSuccessMessage('Profile successfully saved');
+            $flashMessenger->addSuccessMessage('Учётная запись сохранена.');
         } else {
             $destinationRoute = 'profile/edit_profile/form_profile';
-            $flashMessenger->addErrorMessage('Invalid email');
-            $flashMessenger->addErrorMessage('Invalid username');
+            $flashMessenger->addErrorMessage('Неверный email.');
+            $flashMessenger->addErrorMessage('Неверное имя пользователя.');
         }
 
         return $this->redirect()->toRoute($destinationRoute);

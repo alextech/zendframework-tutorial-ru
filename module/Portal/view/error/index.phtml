@@ -1,22 +1,22 @@
-<h1>An error occurred</h1>
+<h1>Произошла ошибка</h1>
 <h2><?= $this->message ?></h2>
 
 <?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
 
 <?php if(isset($this->exception) && ($this->exception instanceof Exception || $this->exception instanceof Error)): ?>
 <hr/>
-<h2>Additional information:</h2>
+<h2>Дополнительная информация:</h2>
 <h3><?= get_class($this->exception) ?></h3>
 <dl>
-    <dt>File:</dt>
+    <dt>Файл:</dt>
     <dd>
         <pre class="prettyprint linenums"><?= $this->exception->getFile() ?>:<?= $this->exception->getLine() ?></pre>
     </dd>
-    <dt>Message:</dt>
+    <dt>Сообщение:</dt>
     <dd>
         <pre class="prettyprint linenums"><?= $this->escapeHtml($this->exception->getMessage()) ?></pre>
     </dd>
-    <dt>Stack trace:</dt>
+    <dt>Отладка:</dt>
     <dd>
         <pre class="prettyprint linenums"><?= $this->escapeHtml($this->exception->getTraceAsString()) ?></pre>
     </dd>
@@ -27,7 +27,7 @@
     if ($e) :
 ?>
 <hr/>
-<h2>Previous exceptions:</h2>
+<h2>Предыдущие исключения:</h2>
 <ul class="unstyled">
     <?php while($e) : ?>
     <li>
@@ -51,7 +51,7 @@
         $e = $e->getPrevious();
         $icount += 1;
         if ($icount >= 50) {
-            echo "<li>There may be more exceptions, but we have no enough memory to proccess it.</li>";
+            echo "<li>Возможно произошло больше ошибок, но не хватает памяти, чтобы их воспроизвести.</li>";
             break;
         }
         endwhile;
@@ -61,7 +61,7 @@
 
 <?php else: ?>
 
-<h3>No Exception available</h3>
+<h3>Исключение недоступно</h3>
 
 <?php endif ?>
 

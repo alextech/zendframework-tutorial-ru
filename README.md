@@ -1,17 +1,18 @@
-# Zend Framework Tutorial Repository
+# Репозиторий для уроков по Zend Framework.
 
-These are sources for tutorials published at [Alex Tech Adventures](http://alex-tech-adventures.com) and
-[YouTube](https://www.youtube.com/playlist?list=PLXRC3l-ZhN3rQrtVm9nLe_vRi7AB-iWOX).
-The tutorial is derived from original Zend Skeleton application. You can view full original install README file at [Original Repository](https://github.com/zendframework/ZendSkeletonApplication). 
+Здесь расположены исходники для уроков от  [Alex Tech Adventures](http://alex-tech-adventures.com) и
+[YouTube](https://www.youtube.com/playlist?list=PLXRC3l-ZhN3rQrtVm9nLe_vRi7AB-iWOX). 
+Уроки разработаны на основе Zend Skeleton Application. Оригинальный README можно прочесть на [Original Repository](https://github.com/zendframework/ZendSkeletonApplication). 
 
-Use branches to explore tutorial milestones.  You can checkout any branch to see how the application behaves.
-I recommend detailed reading of commit diffs to understand how exactly some concept works, or how to perform a task within the framework.
+К каждому выпуску (начиная с 9-го урока) будет прилагаться задача (Issue) со связанными к ней коммитами.  
+Рекомендую ознакомиться с коммитами против задачь в деталях, чтобы понять как работает та или иная часть фреймворка.
+Так-же можно использовать в качестве справочника.
 
-If you have any fixes or improvements, you may submit a PR against `devel` branch.
+До 9-го урока репозиторий был разбит на ветки. 
 
 ---
 
-Thank you very much for the donation offers! These tutorials are very long to produce.  Extra donations
-will help towards doing this work sustainably without going on extended breaks.
+Большое спасибо за предложения пожертвовать! Запись уроков очень долгий процесс.  Дополнительный доход поможет реализовать
+дальнейшие записи без длительных перерывов. 
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PET8HPTAH3BVU)

@@ -29,7 +29,7 @@ class LdapFactoryTest extends \PHPUnit_Framework_TestCase {
         /** @var Ldap $ldap */
         $ldap = $ldapFactory($sm, 'ldap');
 
-        $this->assertArraySubset($configArray, $ldap->getOptions(), 'Ldap connection should receive configurations from Service Manager');
+        $this->assertArraySubset($configArray, $ldap->getOptions(), 'Соединение Ldap должно получать конфигурации от Service Manager');
     }
 
 }
