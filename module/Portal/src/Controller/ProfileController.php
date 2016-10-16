@@ -25,7 +25,9 @@ class ProfileController extends AbstractActionController {
         $success = true;
         if($success) {
             $destinationRoute = 'profile/view_profile';
-            $flashMessenger->addSuccessMessage('Учётная запись сохранена.');
+//            $flashMessenger->addSuccessMessage('Учётная запись сохранена.');
+            $flashMessenger->addMessage('Уроки должны быть по Русски!', FlashMessenger::NAMESPACE_WARNING, 100);
+            $flashMessenger->addMessage('Это сообщение нужно удалить.', FlashMessenger::NAMESPACE_WARNING, 100);
         } else {
             $destinationRoute = 'profile/edit_profile/form_profile';
             $flashMessenger->addErrorMessage('Неверный email.');
