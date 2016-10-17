@@ -69,4 +69,31 @@
         </div>
         <?= $this->inlineScript() ?>
     </body>
+    <script type="text/javascript">
+        (function () {
+            var FlashMessenger = function() {
+                var messageController = {
+                    removeQueue: [],
+                    closeButtons: document.querySelectorAll('.alert-warning button[class="close"]'),
+
+                    init: function() {
+                        this.closeButtons.forEach(function(button, index, msg, arg) {
+                            button.addEventListener('click', messageController.addToRemoveQueue.bind(messageController, index));
+                        });
+                    },
+
+                    addToRemoveQueue: function(index, e) {
+                        this.removeQueue.push(index);
+                        document.cookie = 'warningRemoveQueue=' + this.removeQueue.join(',')+';path=/'
+                    }
+
+                };
+
+                messageController.init();
+
+            };
+
+            var fm = new FlashMessenger();
+        })();
+    </script>
 </html>
