@@ -8,7 +8,11 @@ use Zend\Mvc\Plugin\FlashMessenger\FlashMessenger;
 class ProfileController extends AbstractActionController {
 
     public function viewAction() {
-        // view profile
+        /** @var FlashMessenger $flashMessenger */
+        $flashMessenger = $this->flashMessenger();
+
+        $flashMessenger->addMessage('Уроки должны быть по Русски!', FlashMessenger::NAMESPACE_WARNING, 100);
+        $flashMessenger->addMessage('Это сообщение нужно удалить.', FlashMessenger::NAMESPACE_WARNING, 100);
     }
 
     public function editAction() {

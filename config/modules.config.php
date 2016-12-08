@@ -5,7 +5,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-ZendDeveloperTools\Module::inject();
+//ZendDeveloperTools\Module::inject();
 
 /**
  * List of enabled modules for this application.
@@ -21,5 +21,6 @@ return [
     'Zend\Router',
     'Zend\Validator',
     'ZFT',
+    'Admin',
     'Portal',
 ];

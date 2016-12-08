@@ -1,0 +1,92 @@
+<div class="row" id="adminUserGroups">
+    <div class="col-md-3">
+
+        <!-- Иконка Профиля -->
+        <div class="box box-primary">
+            <div class="box-body box-profile">
+                <img class="profile-user-img img-responsive img-circle" src="/img/user4-128x128.jpg" alt="Иконка профиля">
+
+                <h3 class="profile-username text-center">Нина Анатольевна</h3>
+
+                <p class="text-muted text-center">Разработчик ПО</p>
+
+                <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                        <b>Разрешённых проблем</b> <a class="pull-right">50</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Участий в проблемах</b> <a class="pull-right">100</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Подписчиков</b> <a class="pull-right">45</a>
+                    </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>&nbsp;</b></a>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+        <!-- Обо мне -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Обо мне</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <strong><i class="fa fa-map-marker margin-r-5"></i> Местоположение</strong>
+
+                <p class="text-muted">Таганрог, Ростовская обл.</p>
+
+                <hr>
+
+                <strong><i class="fa fa-pencil margin-r-5"></i> Навыки</strong>
+
+                <p>
+                    <span class="label label-danger">UI дезайн</span>
+                    <span class="label label-success">кодирование</span>
+                    <span class="label label-info">JavaScript</span>
+                    <span class="label label-warning">PHP</span>
+                    <span class="label label-primary">Node.js</span>
+                </p>
+
+                <hr>
+
+                <strong><i class="fa fa-file-text-o margin-r-5"></i> Заметки</strong>
+
+                <p>Люди, которые думают, что ненавидят компьютеры, на самом деле ненавидят плохих программистов.</p>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-9">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li><a href="/admin/users/1/activity">Деятельность</a></li>
+                <li><a href="/admin/users/1/timeline">Лента времени</a></li>
+                <li><a href="/admin/users/1/settings">Настройки</a></li>
+                <li class="active"><a href="#groups">Группы и разрешения</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" id="groups">
+                    <select id='pre-selected-options' multiple='multiple'>
+                        <option value='elem_1' selected>Разработчики PHP</option>
+                        <option value='elem_2'>UI Дезайн</option>
+                        <option value='elem_3'>Админ</option>
+                        <option value='elem_4' selected>Разработчики Zend Framework</option>
+                        ...
+                        <option value='elem_100'>elem 100</option>
+                    </select>
+                </div>
+                <!-- /.tab-pane вкладка-->
+            </div>
+            <!-- /.tab-content содержание -->
+        </div>
+        <!-- /.nav-tabs-custom вкладка нивигиции-->
+    </div>
+    <!-- /.col колонка-->
+</div>
+<!-- /.row строка-->

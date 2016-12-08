@@ -8,7 +8,6 @@
 namespace Portal;
 
 use Interop\Container\ContainerInterface;
-use Portal\Controller\AdminControllerFactory;
 use Portal\Controller\IndexController;
 use Portal\Controller\ProfileController;
 use Portal\Controller\UserRelatedControllerFactory;
@@ -80,41 +79,6 @@ return [
                     ],
                 ]
             ],
-            'admin' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/admin',
-                    'defaults' => [
-                        'controller' => Controller\AdminController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    'dbtools' => [
-                        'type' => Literal::class,
-                        'options' => [
-                            'route' => '/db',
-                            'defaults' => [
-                                'needsDatabase' => false
-                            ]
-                        ],
-                        'may_terminate' => true,
-                        'child_routes' => [
-                            'runmigrations' => [
-                                'type' => Literal::class,
-                                'options' => [
-                                    'route' => '/runmigrations',
-                                    'defaults' => [
-                                        'needsDatabase' => false,
-                                        'action' => 'runmigrations'
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -130,7 +94,6 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => UserRelatedControllerFactory::class,
-            Controller\AdminController::class => AdminControllerFactory::class,
             Controller\ProfileController::class => InvokableFactory::class
         ],
     ],
@@ -140,8 +103,9 @@ return [
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
+        'layout'                   => 'layout/portal',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/portal'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',

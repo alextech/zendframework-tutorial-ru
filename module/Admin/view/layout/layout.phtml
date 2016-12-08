@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Админка ZFT | начальная страница </title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0//css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1//css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/plugins/multi-select/multi-select.dist.css">
+    <!-- Тема -->
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <!-- AdminLTE Темы. При изменении не забывайте сопоставить body. -->
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+</head>
+<!--
+Варианты BODY стилей:
+=================
+Выберете один или несколько классов
+|---------------------------------------------------------|
+| Темы          | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|Разметка       | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Основной заголовок -->
+    <header class="main-header">
+
+        <!-- Логотип -->
+        <a href="/admin" class="logo">
+            <!-- мини логотип для врезки мини 50x50 pixels -->
+            <span class="logo-mini"><b>Z</b>FT</span>
+            <!-- логотип для обычных сайтов и мобильниках -->
+            <span class="logo-lg"><b>Админ</b>ZFT</span>
+        </a>
+
+        <!-- Заголовная навигация -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Переключатель боковой калонки -->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Правое меню навигации -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Сообщения: стили находятся в dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <!-- Переключатель меню -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">У вас 4 сообщения</li>
+                            <li>
+                                <!-- внутреннее меню: содержит сообщения -->
+                                <ul class="menu">
+                                    <li><!-- Начало сообщения -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!-- Иконка пользователя -->
+                                                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <!-- Заголовок и метка времени -->
+                                            <h4>
+                                                Поддержка
+                                                <small><i class="fa fa-clock-o"></i> 5 минут</small>
+                                            </h4>
+                                            <!-- Сообщение -->
+                                            <p>Почему-бы не купить новый крутой шаблон?</p>
+                                        </a>
+                                    </li>
+                                    <!-- Конец сообщения -->
+                                </ul>
+                                <!-- /.menu меню -->
+                            </li>
+                            <li class="footer"><a href="#">Просмотреть все сообщения</a></li>
+                        </ul>
+                    </li>
+                    <!-- /.messages-menu меню сообщений-->
+
+                    <!-- Меню уведомлений -->
+                    <li class="dropdown notifications-menu">
+                        <!-- Переключатель меню -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">У вас 10 уведомлений</li>
+                            <li>
+                                <!-- Внутреннее Меню: содержит уведомления -->
+                                <ul class="menu">
+                                    <li><!-- Начало уведомлений -->
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i>5 новых пользователей зарегестрировались
+                                        </a>
+                                    </li>
+                                    <!-- Конец уведомлений -->
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">Просмотреть все</a></li>
+                        </ul>
+                    </li>
+                    <!-- Меню заданий -->
+                    <li class="dropdown tasks-menu">
+                        <!-- Переключатель меню -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">У вас 9 задачь</li>
+                            <li>
+                                <!-- Внутреннее меню: содержит задания -->
+                                <ul class="menu">
+                                    <li><!-- Задание -->
+                                        <a href="#">
+                                            <!-- Заголовок задачи и прогресс -->
+                                            <h3>
+                                                Создать несколько кнопок
+                                                <small class="pull-right">20%</small>
+                                            </h3>
+                                            <!-- Индикатор выполнения задачь (progress bar) -->
+                                            <div class="progress xs">
+                                                <!-- Изменить css длину, для симулиции прогресса -->
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">20% Выполнено</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- Кониц задания -->
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">Просмотреть все</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Меню учётной записи -->
+                    <li class="dropdown user user-menu">
+                        <!-- Переключатель меню -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- Иконка пользователя в навигиции-->
+                            <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <!-- hidden-xs прячет имя пользователя на маленьких устройствах так, чтобы только была видна иконка -->
+                            <span class="hidden-xs">Степан Степанович</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Иконка пользователя в меню -->
+                            <li class="user-header">
+                                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Степан Степановичь <br>Веб Разработчик
+                                    <small>Участник с Нбр. 2012</small>
+                                </p>
+                            </li>
+                            <!-- Меню -->
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Подписчики</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Продажи</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Друзья</a>
+                                    </div>
+                                </div>
+                                <!-- /.row строка -->
+                            </li>
+                            <!-- нижний колонтитул-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Учётная запись</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Выход</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Переключатель бокового меню -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Боковая панель с логотипом и левой панелью -->
+    <aside class="main-sidebar">
+
+        <!-- боковая панель: стиль находится в sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Боковая панель для пользователя (необязательная) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Степан Степанович</p>
+                    <!-- Статус -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> на связи</a>
+                </div>
+            </div>
+
+            <!-- поисковая форма form (необязательная) -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Искать...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.поисковая форма -->
+
+            <!-- Левое Меню -->
+            <ul class="sidebar-menu">
+                <li class="header">ЗАГОЛОВОК</li>
+                <!-- Можно добавить иконки и ссылки -->
+                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Ссылка</span></a></li>
+                <li><a href="#"><i class="fa fa-link"></i> <span>Ещё ссылка</span></a></li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-link"></i> <span>Пользователи</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/users#">Список пользователей</a></li>
+                        <li><a href="/admin/groups#">Группы пользователей</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.sidebar-menu боковое меню-->
+        </section>
+        <!-- /.sidebar боковая панель-->
+    </aside>
+
+    <!-- Контейнер содержания. Несёт содержание страницы -->
+    <div class="content-wrapper">
+        <!-- Заголовок содержания (Page header) -->
+        <section class="content-header">
+            <h1>
+                Заголовок
+                <small>Необязательное описание</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Уровень</a></li>
+                <li class="active">Здесь</li>
+            </ol>
+        </section>
+
+        <!-- Основное содержание -->
+        <section class="content">
+
+            <!-- Содержание Вашей Страницы Идёт Сюда -->
+            <?php echo $this->content; ?>
+
+        </section>
+        <!-- /.content содержание-->
+    </div>
+    <!-- /.content-wrapper контейнер содержания-->
+
+    <!-- Основной нижний колонтитул -->
+    <footer class="main-footer">
+        <!-- Правая часть -->
+        <div class="pull-right hidden-xs">
+            Что угодно
+        </div>
+        <!-- На лево по умолчанию -->
+        <strong>Copyright &copy; 2016 <a href="#">OOO</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Боковая контрольная панель -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Вкладки -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Панели вкладок -->
+        <div class="tab-content">
+            <!-- Домашняя вкладка -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Недавние события</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Петин день рождения</h4>
+
+                                <p>Следует в 23:00, 24-го Апреля</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu кнопки-бокового-меню -->
+
+                <h3 class="control-sidebar-heading">Прогресс заданий</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <h4 class="control-sidebar-subheading">
+                                Разработка Заказных Шаблонов
+                                <span class="pull-right-container">
+                  <span class="label label-danger pull-right">70%</span>
+                </span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu кнопки-бокового-меню -->
+
+            </div>
+            <!-- /.tab-pane панель вкладок -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Панель статистики</div>
+            <!-- /.tab-pane панель-вкладка-->
+            <!-- Вкладка параметров-->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">Общие параметры</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Рапорт использования
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Краткая информация об этой вкладки с параметрами
+                        </p>
+                    </div>
+                    <!-- /.form-group группа форм-->
+                </form>
+            </div>
+            <!-- /.tab-pane панель вкладок -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar бокавые кнопки -->
+    <!-- Фон бокавое панели. Этот div должен быть
+         сразу после конроль панели -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper контейнер-->
+
+<!-- Нужные JS сценарии -->
+
+<!-- jQuery 2.2.3 -->
+<script src="/js/jquery-2.2.4.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/app.min.js"></script>
+<script src="/plugins/multi-select/jquery.multi-select.js"></script>
+<script type="text/javascript">
+    // run pre selected options
+    $('#pre-selected-options').multiSelect();
+    $('#adminUserGroups #groups').addClass('active');
+</script>
+
+<!-- Так же, можно добавить Slimscroll и FastClick дополнения.
+     Эти дополнения рекомендуются для улучьшения удобства использования
+     Slimscroll требуется при использовании
+     неподвижной разметки. -->
+</body>
+</html>
