@@ -8,8 +8,12 @@ use ZFT\User;
 
 class UsersController extends AbstractActionController
 {
-    public function __construct() {
 
+    /** @var  User\Repository */
+    private $userRepository;
+
+    public function __construct(User\Repository $userRepository) {
+        $this->userRepository = $userRepository;
     }
 
     public function indexAction() {
@@ -17,7 +21,10 @@ class UsersController extends AbstractActionController
     }
 
     public function activityAction() {
+        $userID = $this->params('id');
+        $user = $this->userRepository->getUserById($userID);
 
+        return ['user' => $user];
     }
 
     public function timelineAction() {

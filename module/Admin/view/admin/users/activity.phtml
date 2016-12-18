@@ -1,3 +1,9 @@
+<?php
+
+/** @var \ZFT\User\User $user */
+$user = $this->user;
+?>
+
 <div class="row">
     <div class="col-md-3">
 
@@ -6,9 +12,10 @@
             <div class="box-body box-profile">
                 <img class="profile-user-img img-responsive img-circle" src="/img/user4-128x128.jpg" alt="Иконка профиля">
 
-                <h3 class="profile-username text-center">Нина Анатольевна</h3>
+                <h3 class="profile-username text-center"><?= $user->getFirstName().' '.$user->getPatronymic(); ?></h3>
 
-                <p class="text-muted text-center">Разработчик ПО</p>
+                <p class="text-muted text-center"><?= $user->getEmail(); ?></p>
+                <p class="text-muted text-center"><s>Разработчик ПО</s></p>
 
                 <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">

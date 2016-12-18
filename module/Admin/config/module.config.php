@@ -2,9 +2,13 @@
 namespace Admin;
 
 use Admin\Controller\AdminControllerFactory;
+use Admin\Controller\UsersController;
+use Interop\Container\ContainerInterface;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\ServiceManager\ServiceManager;
+use ZFT\User\Repository;
 
 return [
     'router' => [
@@ -64,7 +68,10 @@ return [
         ],
         'factories' => [
             Controller\AdminController::class => AdminControllerFactory::class,
-            Controller\UsersController::class  => InvokableFactory::class,
+            Controller\UsersController::class  => function(ContainerInterface $sm) {
+                $repository = $sm->get(Repository::class);
+                return new UsersController($repository);
+            },
             Controller\GroupsController::class  => InvokableFactory::class
         ],
     ],

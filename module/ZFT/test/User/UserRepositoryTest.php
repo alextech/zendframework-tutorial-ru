@@ -21,16 +21,26 @@ class UserRepositoryTest extends \PHPUnit_Framework_TestCase {
         $dataMapperStub = new DataMapperStub();
         */
 
-        $identityMapStub = new class() implements User\IdentityMapInterface {
-
-        };
-
         $dataMapperStub = new class() implements User\DataMapperInterface {
 
         };
 
-        $repository = new User\Repository($identityMapStub, $dataMapperStub);
+        $repository = new User\Repository($dataMapperStub);
 
         $this->assertInstanceOf(User\Repository::class, $repository);
+    }
+
+    public function testGetSameObjectWithMultipleRequests() {
+        $dataMapperStub = new class() implements User\DataMapperInterface {
+
+        };
+
+        $repository = new User\Repository($dataMapperStub);
+
+        $user2 = $repository->getUserById(2);
+        $user3 = $repository->getUserById(3);
+        $user4 = $repository->getUserById(2);
+
+        $this->assertSame($user2, $user4);
     }
 }

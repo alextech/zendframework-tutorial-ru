@@ -46,7 +46,6 @@ class Module implements ServiceProviderInterface {
         return [
             'factories' => [
                 PostgresDataMapper::class => InvokableFactory::class,
-                MemoryIdentityMap::class => InvokableFactory::class,
 
                 UserRepository::class => RepositoryFactory::class,
                 'authentication' => AuthenticationServiceFactory::class,

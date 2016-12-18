@@ -11,6 +11,15 @@ class User {
      */
     private $username;
 
+    /** @var  string */
+    private $firstName;
+
+    /** @var  string */
+    private $surname;
+
+    /** @var  string */
+    private $patronymic;
+
     /**
      * @var Group[]
      */
@@ -26,10 +35,7 @@ class User {
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getId() {
+    public function getId() : int {
         return $this->id;
     }
 
@@ -43,7 +49,7 @@ class User {
     /**
      * @return string
      */
-    public function getUsername() {
+    public function getUsername() : string {
         return $this->username;
     }
 
@@ -60,6 +66,42 @@ class User {
      */
     public function getGroups(): array {
         return $this->groups;
+    }
+
+    public function setFirstName($firstName) {
+        $this->firstName = $firstName;
+    }
+
+    public function getFirstName() : string {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSurname(): string {
+        return $this->surname;
+    }
+
+    /**
+     * @param string $surname
+     */
+    public function setSurname(string $surname) {
+        $this->surname = $surname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPatronymic(): string {
+        return $this->patronymic;
+    }
+
+    /**
+     * @param string $patronymic
+     */
+    public function setPatronymic(string $patronymic) {
+        $this->patronymic = $patronymic;
     }
 
     /**

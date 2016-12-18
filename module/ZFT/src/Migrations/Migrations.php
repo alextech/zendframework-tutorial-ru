@@ -16,7 +16,7 @@ use Zend\EventManager\EventManager;
 
 class Migrations {
 
-    const MINIMUM_SCHEMA_VERSION = 1;
+    const MINIMUM_SCHEMA_VERSION = 2;
     const INI_TABLE = 'ini';
 
     /** @var  Adapter */
@@ -111,7 +111,7 @@ class Migrations {
             $update = $updates[$v];
             $this->{$update}();
 
-//            $this->setVersion($v);
+            $this->setVersion($v);
         }
 
         return;
@@ -167,37 +167,44 @@ class Migrations {
     }
 
     protected function update_002() {
-//        $usersTable = new Ddl\CreateTable('users');
-//        $id = new Ddl\Column\Integer('id');
-//        $firstName= new Ddl\Column\Varchar('first_name');
-//        $surName = new Ddl\Column\Varchar('surname');
-//        $patronymic = new Ddl\Column\Varchar('patronymic');
-//
-//        $email = new Ddl\Column\Varchar('email');
-//
-//        $usersTable->addColumn($id);
-//        $usersTable->addColumn($firstName);
-//        $usersTable->addColumn($surName);
-//        $usersTable->addColumn($patronymic);
-//        $this->execute($usersTable);
-//
-//        $insert = new Insert('users');
-//        $insert->columns(['id', 'first_name', 'surname', 'patronymic']);
+        $usersTable = new Ddl\CreateTable('users');
 
+        // mysql version
+//        $id = new Ddl\Column\Integer('id');
+//        $id->setOption('autoincrement', true);
+        $firstName = new Ddl\Column\Varchar('first_name');
+        $surName = new Ddl\Column\Varchar('surname');
+        $patronymic = new Ddl\Column\Varchar('patronymic');
+        $email = new Ddl\Column\Varchar('email');
+
+        // mysql version
+//        $usersTable->addColumn($id);
+        $usersTable->addColumn($firstName);
+        $usersTable->addColumn($surName);
+        $usersTable->addColumn($patronymic);
+        $usersTable->addColumn($email);
+        $this->execute($usersTable);
+
+        $this->adapter->query('ALTER TABLE users ADD COLUMN id SERIAL PRIMARY KEY', Adapter::QUERY_MODE_EXECUTE);
 
         $faker = new Faker\Generator();
         $faker->addProvider(new Faker\Provider\ru_RU\Person($faker));
+        $faker->addProvider(new Faker\Provider\ru_RU\Internet($faker));
+
+        $insert = new Insert('users');
+
+        $sql = new Sql($this->adapter);
         for($i = 0; $i < 10; $i++) {
+            $name = explode(' ', $faker->name);
+            $insert->values([
+                'first_name' => $name[0],
+                'surname' => $name[2],
+                'patronymic' => $name[1],
+                'email' => $faker->email
+            ]);
 
-
-//            $insert->values([
-//                'id' => $i,
-//                'first_name' =>$faker->firstName,
-//                'surname' => $faker->lastName,
-//                'patronymic' => $faker->middleName]);
-            $n = $faker->name;
-
-            $v = 1;
+            $insertStatement = $sql->prepareStatementForSqlObject($insert);
+            $insertStatement->execute();
         }
 
     }

@@ -24,7 +24,9 @@
         "zendframework/zend-ldap": "*",
         "zendframework/zend-authentication": "*",
         "fzaninotto/faker": "*",
-        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0"
+        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0",
+        "zendframework/zend-hydrator": "2.2.1",
+        "zendframework/zend-filter": "*"
     },
     "autoload": {
         "psr-4": {
