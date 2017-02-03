@@ -250,23 +250,30 @@ class Migrations {
 
 
         $insertMoreUsers = new Insert('users');
+        $insertMoreUsers->values([
+            'first_name' => ':first_name',
+            'surname' => ':surname',
+            'patronymic' => ':patronymic',
+            'email' => ':email',
+            'profile_image' => ':profile_image'
+        ]);
 
         $faker = new Faker\Generator();
         $faker->addProvider(new Faker\Provider\ru_RU\Person($faker));
         $faker->addProvider(new Faker\Provider\ru_RU\Internet($faker));
 
+
+        $insertStatement = $sql->prepareStatementForSqlObject($insertMoreUsers);
         for($i = 0; $i < 90; $i++) {
             $name = explode(' ', $faker->name);
-            $insertMoreUsers->values([
-                'first_name' => $name[0],
-                'surname' => $name[2],
-                'patronymic' => $name[1],
-                'email' => $faker->email,
-                'profile_image' => $faker->unique()->numberBetween(11, 100)
-            ]);
-            $insertStatement = $sql->prepareStatementForSqlObject($insertMoreUsers);
 
-            $insertStatement->execute();
+            $insertStatement->execute([
+                ':first_name' => $name[0],
+                ':surname' => $name[2],
+                ':patronymic' => $name[1],
+                ':email' => $faker->email,
+                ':profile_image' => $faker->unique()->numberBetween(11, 100)
+            ]);
         }
     }
 
