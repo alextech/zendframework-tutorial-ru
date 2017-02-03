@@ -10,7 +10,6 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use ZFT\Authentication\AuthenticationServiceFactory;
 use ZFT\Connections\LdapFactory;
 use ZFT\Migrations\Migrations;
-use ZFT\User\MemoryIdentityMap;
 use ZFT\User\PostgresDataMapper;
 use ZFT\User\Repository as UserRepository;
 use ZFT\User\RepositoryFactory;

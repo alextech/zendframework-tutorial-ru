@@ -9,14 +9,16 @@ use Zend\Db\Metadata\MetadataInterface;
 use Zend\Db\Metadata\Object\TableObject;
 use Zend\Db\Metadata\Source\Factory as MetadataFactory;
 use Zend\Db\Sql\Insert;
+use Zend\Db\Sql\Predicate\Predicate;
 use Zend\Db\Sql\Sql;
 use Zend\Db\Sql\Ddl;
+use Zend\Db\Sql\Update;
 use Zend\Db\Sql\Where;
 use Zend\EventManager\EventManager;
 
 class Migrations {
 
-    const MINIMUM_SCHEMA_VERSION = 2;
+    const MINIMUM_SCHEMA_VERSION = 3;
     const INI_TABLE = 'ini';
 
     /** @var  Adapter */
@@ -206,7 +208,66 @@ class Migrations {
             $insertStatement = $sql->prepareStatementForSqlObject($insert);
             $insertStatement->execute();
         }
+    }
 
+    protected function update_003() {
+        $sql = new Sql($this->adapter);
+
+        $assetsTable = new Ddl\CreateTable('assets');
+        $path = new Ddl\Column\Varchar('path', 128);
+        $assetsTable->addColumn($path);
+
+        $this->execute($assetsTable);
+        $this->adapter->query('ALTER TABLE assets ADD COLUMN id SERIAL PRIMARY KEY', Adapter::QUERY_MODE_EXECUTE);
+
+        $insertSampleImages = new Insert('assets');
+        $insertSampleImages->values([
+            'path' => ':path'
+        ]);
+        $stmt = $sql->prepareStatementForSqlObject($insertSampleImages);
+        for($i = 1; $i <= 100; $i++) {
+            $stmt->execute([':path' => 'user_'.$i.'.png']);
+        }
+
+        $usersTable = new Ddl\AlterTable('users');
+        $profileImage = new Ddl\Column\Integer('profile_image', true);
+        $profileImage->addConstraint(new Ddl\Constraint\ForeignKey(
+            'userprofileimage_assets_relation',
+            null, 'assets', 'id'
+        ));
+        $usersTable->addColumn($profileImage);
+
+        $this->execute($usersTable);
+
+        $setProfileImage = new Update('users');
+        $setProfileImage->set(['profile_image' => ':profile_image'])
+            ->where('id = :id');
+        $stmt = $sql->prepareStatementForSqlObject($setProfileImage);
+
+        for($i = 1; $i <= 10; $i++) {
+            $stmt->execute([':profile_image' => $i, 'id' => $i]);
+        }
+
+
+        $insertMoreUsers = new Insert('users');
+
+        $faker = new Faker\Generator();
+        $faker->addProvider(new Faker\Provider\ru_RU\Person($faker));
+        $faker->addProvider(new Faker\Provider\ru_RU\Internet($faker));
+
+        for($i = 0; $i < 90; $i++) {
+            $name = explode(' ', $faker->name);
+            $insertMoreUsers->values([
+                'first_name' => $name[0],
+                'surname' => $name[2],
+                'patronymic' => $name[1],
+                'email' => $faker->email,
+                'profile_image' => $faker->unique()->numberBetween(11, 100)
+            ]);
+            $insertStatement = $sql->prepareStatementForSqlObject($insertMoreUsers);
+
+            $insertStatement->execute();
+        }
     }
 
 }
