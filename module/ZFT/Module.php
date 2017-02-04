@@ -10,6 +10,9 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use ZFT\Authentication\AuthenticationServiceFactory;
 use ZFT\Connections\LdapFactory;
 use ZFT\Migrations\Migrations;
+use ZFT\Migrations\Platform\SqlServerMigrations;
+use Zend\Db\Adapter\Platform\Postgresql;
+use Zend\Db\Adapter\Platform\SqlServer;
 use ZFT\User\PostgresDataMapper;
 use ZFT\User\Repository as UserRepository;
 use ZFT\User\RepositoryFactory;
@@ -25,8 +28,18 @@ class Module implements ServiceProviderInterface {
             $router = $e->getRouteMatch();
             if(!($router->getParam('needsDatabase') === false)) {
                 $adapter = $sm->get('dbcon');
+                $platform = $adapter->platform;
 
-                $migrations = new Migrations($adapter);
+                switch (true) {
+                    case $platform instanceof SqlServer:
+                        $migrations = new SqlServerMigrations($adapter);
+                        break;
+                    case $platform instanceof Postgresql:
+                        $migrations = new Migrations($adapter);
+                        break;
+                }
+
+                $migrations = new SqlServerMigrations($adapter);
                 if($migrations->needsUpdate()) {
                     $e->setName(MvcEvent::EVENT_DISPATCH_ERROR);
                     $e->setError('База данных нуждается в обновлении.');
