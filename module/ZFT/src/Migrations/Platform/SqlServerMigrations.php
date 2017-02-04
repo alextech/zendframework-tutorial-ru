@@ -115,8 +115,8 @@ class SqlServerMigrations extends Migrations {
     protected function update_001() {
         $iniTable = new Ddl\CreateTable(self::INI_TABLE);
 
-        $option = new Ddl\Column\Varchar('option');
-        $value  = new Ddl\Column\Varchar('value');
+        $option = new Ddl\Column\Varchar('option', 32);
+        $value  = new Ddl\Column\Varchar('value', 32);
 
         $iniTable->addColumn($option);
         $iniTable->addColumn($value);
