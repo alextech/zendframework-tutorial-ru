@@ -39,7 +39,6 @@ class Module implements ServiceProviderInterface {
                         break;
                 }
 
-                $migrations = new SqlServerMigrations($adapter);
                 if($migrations->needsUpdate()) {
                     $e->setName(MvcEvent::EVENT_DISPATCH_ERROR);
                     $e->setError('База данных нуждается в обновлении.');
