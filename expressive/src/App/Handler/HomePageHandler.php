@@ -35,7 +35,8 @@ class HomePageHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        $value = $request->getAttribute('variable');
+        $middlewareParameter = $request->getAttribute('variable');
+        $httpParameter = $request->getQueryParams()['запрос'];
 
         if (! $this->template) {
             return new JsonResponse([
